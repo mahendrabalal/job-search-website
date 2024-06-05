@@ -10,7 +10,7 @@ function Navbar() {
                 <p className="logo-text">Job Beyond the Imagination</p>
             </div>
             <div className="nav-links">
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/services">Services</Link>
                 <Link to="/contact">Contact</Link>

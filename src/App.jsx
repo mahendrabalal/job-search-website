@@ -8,7 +8,6 @@ import "./App.css"
 import Contact from "./pages/Contact";
 
 function App() {
-
   return (
       <div className='root'>
       <Navbar />
