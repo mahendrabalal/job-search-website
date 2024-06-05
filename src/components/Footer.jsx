@@ -13,8 +13,8 @@ function Footer (){
         <div id="footer-links">
           <h5>Mahendra</h5>
           <div id="footer-img">
-            <a href="" target="_blank"><img src={githubLogo} alt="github"/></a>
-            <a href="" target="_blank"><img src={linkedinLogo} alt="linkedin"/></a>
+            <a href="https://github.com/mahendrabalal" target="_blank"><img src={githubLogo} alt="github"/></a>
+            <a href="https://www.linkedin.com/in/mahendra-balal-11356344/" target="_blank"><img src={linkedinLogo} alt="linkedin"/></a>
           </div>
         </div>
         <div id="footer-links">
