@@ -1,0 +1,10 @@
+#job-type{
+  display: flex;
+  justify-content: space-between;
+}
+.job-card{
+  background-color: aliceblue;
+  padding: 8%;
+  border-radius: 15px;
+  margin: 20px 0;
+}
