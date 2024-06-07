@@ -1,31 +1,14 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+
 import { Link } from "react-router-dom";
 import "./Home.css";
 
-function Home() {
-  const [jobs, setJobs] = useState([]);
-
-  const getAllJobs = () => {
-    axios
-      .get("https://job-search-website-backend.adaptable.app/jobs")
-      .then((response) => {
-        setJobs(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  useEffect(() => {
-    getAllJobs();
-  }, []);
-
+function Home({ jobs }) {
   return (
     <div className="jobListPage">
       {jobs.map((job) => {
         return (
           <div className="job-card" key={job.id}>
-            <Link to={`/jobs/${job.id}`}>
+            <Link id="no-style" to={`/jobs/${job.id}`}>
             <h3>{job.title}</h3>
             <div id="job-type">
               <p>{job.company}</p>
@@ -41,5 +24,4 @@ function Home() {
     </div>
   );
 }
-
 export default Home;
