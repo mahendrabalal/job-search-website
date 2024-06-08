@@ -5,6 +5,9 @@ import "./Home.css";
 function Home({ jobs }) {
   return (
     <div className="jobListPage">
+    <Link id="no-style" to={`/add-job`}>
+      <button>+</button>
+    </Link>
       {jobs.map((job) => {
         return (
           <div className="job-card" key={job.id}>

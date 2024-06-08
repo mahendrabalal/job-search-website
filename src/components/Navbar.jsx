@@ -6,8 +6,8 @@ function Navbar() {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src={Logo} alt="Logo" width="200px" height="200px" />
-                <p className="logo-text">Job Beyond the Imagination</p>
+                <img src={Logo} alt="Logo" width="50px" height="25px" />
+            
             </div>
             <div className="nav-links">
             <Link to="/home">Home</Link>

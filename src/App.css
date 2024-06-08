@@ -22,3 +22,12 @@ p, h1, h2, h3, h4, h5, h6{
   text-decoration: none;
   color: black;
 }
+
+.apply-now-button {
+border: 1px solid black;
+  padding: 5px;
+  background-color: rgb(140, 128, 128);
+  color: white;
+  border-radius:5px;
+
+}

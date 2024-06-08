@@ -1,10 +1,17 @@
+import React,{useState} from "react";
 import { useParams } from "react-router-dom";
 import "./JobDetails.css";
 
 function JobDetails({ jobs }) {
-  const { id } = useParams();
-  const jobItem = jobs.find(job => job.id === id);
+  const { jobId } = useParams();
+  const jobItem = jobs.find(job => job.id === jobId );
 
+  const[isApplying, setIsApplying] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "";
+    email: "";
+    
+  })
   return (
     <div className="jobDetailsPage"  key={jobItem.id}>
       <h2>{jobItem.title}</h2>
@@ -15,6 +22,8 @@ function JobDetails({ jobs }) {
         <p><strong>Description:</strong> {jobItem.description}</p>
         <p><strong>Salary:</strong> {jobItem.salary}</p>
       </div>
+    <br></br>
+      <button className="apply-now-button">Apply Now</button>
     </div>
   );
 }
