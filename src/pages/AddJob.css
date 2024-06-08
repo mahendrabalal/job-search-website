@@ -1,0 +1,12 @@
+.main-form{
+  background-color: white;
+  padding: 2%;
+  border-radius: 15px;
+}
+.main-form > form{
+  display: flex;
+  flex-direction: column;
+}
+.main-form > form > label{
+  margin-top: 10px;
+}

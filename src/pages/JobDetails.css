@@ -2,4 +2,37 @@
   background-color: white;
   padding: 6%;
   border-radius: 15px;
+
 }
+.apply-now-button {
+    border: 1px solid black;
+      padding: 5px;
+      background-color: rgb(140, 128, 128);
+      color: white;
+      border-radius:5px;
+    
+    }
+.apply-now-button:hover, .submit-application-button:hover {
+    background-color: #0056b3;
+  }
+
+.apply-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+.form-group {
+    margin-bottom: 15px;
+  }
+  
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }

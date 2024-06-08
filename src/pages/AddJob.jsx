@@ -2,88 +2,179 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./AddJob.css";
 
-function AddJob({jobs, setJobs}) {
+function AddJob({ jobs, setJobs }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [company, setCompany] = useState("");
   const [location, setLocation] = useState("");
   const [type, setType] = useState("");
-  const [salary, setSalary] = useState("");
+  const [minSalary, setMinSalary] = useState("");
+  const [maxSalary, setMaxSalary] = useState("");
   const [requirements, setRequirements] = useState("");
-  const [responsabilities, setResponsabilities] = useState("");
-  
+  const [responsibilities, setResponsibilities] = useState("");
 
   const handleSetTitle = (e) => setTitle(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleCompany = (e) => setCompany(e.target.value);
   const handleLocation = (e) => setLocation(e.target.value);
   const handleType = (e) => setType(e.target.value);
-  const handleSalary = (e) => setSalary(e.target.value);
+  const handleMinSalary = (e) => setMinSalary(e.target.value);
+  const handleMaxSalary = (e) => setMaxSalary(e.target.value);
   const handleRequirements = (e) => setRequirements(e.target.value);
-  const handleResponsabilities = (e) => setResponsabilities(e.target.value);
+  const handleResponsibilities = (e) => setResponsibilities(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Generate a unique id for the new food item
     const id = uuidv4();
+    const salary = `${minSalary} - ${maxSalary} USD`;
 
-    const newFood = { id, title, description, company, location, type, salary, requirements, responsabilities };
+    const requirementsArray = requirements.split(",").map(req => req.trim());
+    const responsabilitiesArray = responsibilities.split(",").map(req => req.trim());
+    const postedDate = new Date().toISOString().split('T')[0];
 
-    setJobs([newFood, ...jobs]);
+    const newJob = { 
+      id, 
+      title, 
+      description, 
+      company, 
+      location, 
+      type, 
+      salary, 
+      requirements: requirementsArray, 
+      responsibilities: responsabilitiesArray,
+      posted_date: postedDate
+    };
+
+    setJobs([newJob, ...jobs]);
 
     setTitle("");
     setDescription("");
     setCompany("");
     setLocation("");
     setType("");
-    setSalary("");
+    setMinSalary("");
+    setMaxSalary("");
     setRequirements("");
-    setResponsabilities("");
+    setResponsibilities("");
   };
 
   return (
     <div className="main-form">
+      <h2 id="add-job-text">Add a Job</h2>
       <form onSubmit={handleSubmit}>
-        <h2 id="add-food-text">Add a Job</h2>
+        
         <label>
-            Title
-            <input className="add-job-form" name="title" type="text" placeholder="Title" onChange={handleSetTitle} value={title} />
-          </label>
+          Title
+          <input 
+            className="add-job-form" 
+            name="title" 
+            type="text" 
+            placeholder="Title" 
+            onChange={handleSetTitle} 
+            value={title} 
+          />
+        </label>
 
-          <label>
-            Description
-            <input className="add-job-form" name="description" type="text" placeholder="Description" onChange={handleDescription} value={description} />
-          </label>
+        <label>
+          Description
+          <input 
+            className="add-job-form" 
+            name="description" 
+            type="text" 
+            placeholder="Description" 
+            onChange={handleDescription} 
+            value={description} 
+          />
+        </label>
 
-          <label>
-            Company
-            <input className="add-job-form" name="company" type="text" placeholder="Company" onChange={handleCompany} value={company} />
-          </label>
+        <label>
+          Company
+          <input 
+            className="add-job-form" 
+            name="company" 
+            type="text" 
+            placeholder="Company" 
+            onChange={handleCompany} 
+            value={company} 
+          />
+        </label>
 
-          <label>
-            Location
-            <input className="add-job-form" name="location" type="text" placeholder="Location" onChange={handleLocation} value={location} />
-          </label>
+        <label>
+          Location
+          <input 
+            className="add-job-form" 
+            name="location" 
+            type="text" 
+            placeholder="Location" 
+            onChange={handleLocation} 
+            value={location} 
+          />
+        </label>
 
-          <label>
-            Type
-            <input className="add-job-form" name="type" type="text" placeholder="Type" onChange={handleType} value={type} />
-          </label>
+        <label>
+          Type:
+          <select 
+            name="type" 
+            id="type" 
+            onChange={handleType} 
+            value={type}
+            className="add-job-form"
+          >
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+            <option value="Temporary">Temporary</option>
+            <option value="Internship">Internship</option>
+          </select>
+        </label>
 
-          <label>
-            Salary
-            <input className="add-job-form" name="salary" type="number" placeholder="Salary" onChange={handleSalary} value={salary} />
-          </label>
+        <label>
+          Minimum Salary
+          <input 
+            className="add-job-form" 
+            name="minSalary" 
+            type="number" 
+            placeholder="Minimum Salary" 
+            onChange={handleMinSalary} 
+            value={minSalary} 
+          />
+        </label>
 
-          <label>
-            Requirements
-            <input className="add-job-form" name="requirements" type="text" placeholder="Requirements" onChange={handleRequirements} value={requirements} />
-          </label>
+        <label>
+          Maximum Salary
+          <input 
+            className="add-job-form" 
+            name="maxSalary" 
+            type="number" 
+            placeholder="Maximum Salary" 
+            onChange={handleMaxSalary} 
+            value={maxSalary} 
+          />
+        </label>
 
-          <label>
-            Responsabilities
-            <input className="add-job-form" name="responsabilities" type="text" placeholder="Responsabilities" onChange={handleResponsabilities} value={responsabilities} />
-          </label>
+        <label>
+          Requirements
+          <input 
+            className="add-job-form" 
+            name="requirements" 
+            type="text" 
+            placeholder="Requirements (e.g. skill1, skill2, skill3)" 
+            onChange={handleRequirements} 
+            value={requirements} 
+          />
+        </label>
+
+        <label>
+          Responsibilities
+          <input 
+            className="add-job-form" 
+            name="responsibilities" 
+            type="text" 
+            placeholder="Responsibilities (e.g. l, 2, 3)" 
+            onChange={handleResponsibilities} 
+            value={responsibilities} 
+          />
+        </label>
 
         <div>
           <button id="form-button" type="submit">Add Job</button>
