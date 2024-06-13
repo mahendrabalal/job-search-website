@@ -1,10 +1,19 @@
 
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import ThemeContext from "../context/theme.context";
 import "./Home.css";
 
-function Home({ jobs }) {
+function Home({ jobs, setJobs }) {
+  const value = useContext(ThemeContext);
+
+  function deleteJob(id) {
+    const updatedJobList = jobs.filter((el) => el.id !== id);
+    setJobs(updatedJobList);
+  }
+
   return (
-    <div className="jobListPage">
+    <div className={"jobListPage " + value.theme}>
     <Link id="no-style" to={`/add-job`}>
       <button>+</button>
     </Link>
@@ -21,6 +30,7 @@ function Home({ jobs }) {
             <p>{job.description}</p>
             <p>{job.salary}</p>
             </Link>
+            <button id="delete-btn" onClick={() => deleteJob(job.id)}> ❌ </button>
           </div>
         );
       })}

@@ -32,7 +32,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home jobs={jobs} />} />
-        <Route path="/home" element={<Home jobs={jobs} />} />
+        <Route path="/home" element={<Home jobs={jobs} setJobs={setJobs} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/jobs/:jobId" element={<JobDetails jobs={jobs} />} />
