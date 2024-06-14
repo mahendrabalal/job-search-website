@@ -3,15 +3,18 @@
   justify-content: space-between;
 }
 
-
+.jobListPage {
+  width: 90%;
+  
+}
 .job-card{
   /*background-color: aliceblue;*/
   padding: 8%;
   border-radius: 15px;
   margin: 20px 0;
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content:space;
   align-items: center;
 }
 #delete-btn{

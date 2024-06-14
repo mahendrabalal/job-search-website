@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./AddJob.css";
+import { useContext } from "react";
+import ThemeContext from "../context/theme.context";
 
 function AddJob({ jobs, setJobs }) {
   const [title, setTitle] = useState("");
@@ -22,6 +24,8 @@ function AddJob({ jobs, setJobs }) {
   const handleMaxSalary = (e) => setMaxSalary(e.target.value);
   const handleRequirements = (e) => setRequirements(e.target.value);
   const handleResponsibilities = (e) => setResponsibilities(e.target.value);
+
+  const value = useContext(ThemeContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +63,7 @@ function AddJob({ jobs, setJobs }) {
   };
 
   return (
-    <div className="main-form">
+    <div className={"main-form " + value.theme}>
       <h2 id="add-job-text">Add a Job</h2>
       <form onSubmit={handleSubmit}>
         

@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './About.css';
+import { useContext } from "react";
+import ThemeContext from "../context/theme.context";
 
 function About() {
+const {theme}=useContext(ThemeContext);
 
 return (
-<div>
+<div className= {"about-us " + theme}>
+<hr></hr>
       <h1>About Us</h1>
       <p>Welcome to Career Builder, your go-to destination for finding and offering job opportunities across various industries. We are dedicated to bridging the gap between job seekers and employers, making the job search process efficient, effective, and enjoyable for everyone involved.</p>
       <br></br>
@@ -15,6 +20,7 @@ return (
     <p>We offer different opportunities for different parties.</p>
     <br></br>
       <h3>For Job Seekers:</h3>
+     
       <ul>
         <li><strong>Comprehensive Job Listings:</strong> Access thousands of job postings from companies of all sizes and industries.</li>
         <li><strong>Personalized Job Matches:</strong> Receive job recommendations tailored to your skills, experience, and career goals.</li>

@@ -1,35 +1,37 @@
-
 .dark {
-    background-color: #000000;
+  background-color: #18191a;
 }
 
 .light {
-    background-color: #efeded;
-  }
-  
-  .dark{
-    background-color: #18191a;
-  }
-  
-  .Navbar.light {
-    background-color: #ffffff;
-  }
-  
-  .Navbar.dark {
-    background-color: #252526;
-  }
-  
-  .light a,
-  .light p,
-  .light h1,
-  .light h3 {
-    color: #000000;
-  }
-  
-  .dark a,
-  .dark p,
-  .dark h1,
-  .dark h3 {
-    color: #ffffff;
-  }
-  
+  background-color: #efeded;
+}
+
+.Navbar.light {
+  background-color: #ffffff;
+}
+
+.Navbar.dark {
+  background-color: #252526;
+}
+
+.light a,
+.light p,
+.light h1,
+.light h2,
+.light h3,
+.light h5,
+.light li,
+.light ul {
+  color: #000000;
+}
+
+.dark a,
+.dark p,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h5,
+.dark li,
+.dark ul {
+  color: #ffffff;
+}

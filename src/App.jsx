@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import JobDetails from "./pages/JobDetails";
 import AddJob from './pages/AddJob';
+import Services from './pages/Services';
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/" element={<Home jobs={jobs} />} />
         <Route path="/home" element={<Home jobs={jobs} setJobs={setJobs} />} />
         <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/jobs/:jobId" element={<JobDetails jobs={jobs} />} />
         <Route path="/add-job" element={<AddJob jobs={jobs} setJobs={setJobs}/>} />

@@ -4,7 +4,7 @@
     align-items: center;
     padding: 1px;
     /*background-color:rgb(183, 241, 250);*/
-    width: 100%;
+    width: 90%;
 }
 .logo {
     padding: 0px;
@@ -24,7 +24,7 @@
 .nav-links {
     display: flex;
     justify-content: space-between;
-    gap: 70px; 
+    gap: 50px; 
 }
 
 .nav-links a {

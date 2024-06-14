@@ -1,11 +1,16 @@
 import "./Footer.css"
 import githubLogo from "../assets/github-logo.png"
 import linkedinLogo from "../assets/linkedin-logo.png"
+import { useContext } from "react";
+import ThemeContext from "../context/theme.context";
 
 function Footer (){
+  const value = useContext(ThemeContext);
+
   return(
-    <div id="footer">
+    <div className={"footer " + value.theme}>
       <div id="footer-text">
+      <hr></hr>
         <h5>Get in Touch</h5>
         <p>If you need solutions for your website, don't hesitate to contact us!</p>
       </div>

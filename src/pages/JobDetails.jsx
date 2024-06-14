@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import { useParams } from "react-router-dom";
 import "./JobDetails.css";
+import { useContext } from "react";
+import ThemeContext from "../context/theme.context";
 
 function JobDetails({ jobs }) {
   const { jobId } = useParams();
@@ -28,8 +30,9 @@ if(!jobItem) {
   return <div>Job not found</div>;
 }
 
+const value = useContext(ThemeContext);
   return (
-    <div className="jobDetailsPage"  key={jobItem.id}>
+    <div className={"jobDetailsPage " + value.theme}  key={jobItem.id}>
       <h2>{jobItem.title}</h2>
       <div id="job-details">
         <p><strong>Company:</strong> {jobItem.company}</p>
