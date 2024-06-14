@@ -8,9 +8,9 @@ function Footer (){
   const value = useContext(ThemeContext);
 
   return(
+   
     <div className={"footer " + value.theme}>
       <div id="footer-text">
-      <hr></hr>
         <h5>Get in Touch</h5>
         <p>If you need solutions for your website, don't hesitate to contact us!</p>
       </div>
@@ -31,6 +31,7 @@ function Footer (){
         </div>
       </div>
     </div>
+    
   )
 }
 
