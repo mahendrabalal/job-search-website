@@ -10,7 +10,7 @@ function Navbar() {
     return ( 
         <div className={"navbar " + theme}>
             <div className="logo">
-                <img src={Logo} alt="Logo" width="50px" height="25px" />
+                <Link to='/home'><img src={Logo} alt="Logo" width="50px" height="25px" /></Link>
             
             </div>
             <div className={"nav-links"}>

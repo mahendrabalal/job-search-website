@@ -9,6 +9,10 @@
 .logo {
     padding: 0px;
 }
+.logo a {
+    color: inherit;
+    text-decoration: none;
+}
 
 .logo img {
     width: 200px;

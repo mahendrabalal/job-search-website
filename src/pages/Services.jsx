@@ -7,7 +7,6 @@ function Services() {
 
     return (
         <div className={`services-container ${theme}`}>
-            <hr />
             <h1>Our Services</h1>
             <p>Welcome to <strong>CareerBuilder</strong>, where your career journey begins! We are committed to providing you with comprehensive, user-friendly, and effective services to help you find your dream job. Explore our wide range of services designed to cater to job seekers at every stage of their career.</p>
            

@@ -2,6 +2,8 @@
 .about-us {
     width: 90%;
     align-items: center;
+    margin: 10px auto;
+    padding-top: 50px;
     
 }
 h1, h2, h3, h4, h5 {
