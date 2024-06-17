@@ -3,17 +3,28 @@
 }
 
 .light {
-  background-color: #efeded;
+  background-color: rgb(222, 231, 242);
 }
 
-.Navbar.light {
-  background-color: #ffffff;
+.navbar.light {
+  background-color: #a29797;
 }
 
 .Navbar.dark {
   background-color: #252526;
 }
-
+.footer.light {
+  background-color: #a29797;
+}
+.jobListPage.dark {
+background-color: #ffffff;
+}
+.job-card.light {
+  background-color: rgb(238, 210, 210);
+}
+.nav-button.light {
+  background-color: #b8b0b0;
+}
 .light a,
 .light p,
 .light h1,

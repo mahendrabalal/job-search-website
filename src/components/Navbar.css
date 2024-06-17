@@ -46,11 +46,11 @@
     padding: 5px 30px;
     margin: 5px;
     font-size: 16px;
-    color: #fff; /* Text color */
-    background-color: #b3b8be; /* Background color */
+    color: #fff; 
+    background-color: #b3b8be; 
     border: none;
-    border-radius: 8px; /* Rounded corners */
-    text-decoration: none; /* Remove underline */
+    border-radius: 8px; 
+    text-decoration: none;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;

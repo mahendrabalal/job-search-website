@@ -29,8 +29,9 @@ const handleSubmit = (e) => {
 if(!jobItem) {
   return <div>Job not found</div>;
 }
-
 const value = useContext(ThemeContext);
+
+
   return (
     <div className={"jobDetailsPage " + value.theme}  key={jobItem.id}>
       <h2>{jobItem.title}</h2>
