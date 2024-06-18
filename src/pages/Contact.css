@@ -1,10 +1,9 @@
 .contact-us {
     display: flex;
     background-color: #f9f9f9;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px auto;
-    width: 90%;
+    width: 100%;
+    padding: 20px 0;
 }
 
 .contact-us h2 {
@@ -90,9 +89,10 @@
 }
 
 .map {
-    flex: 1; 
-    margin-left: 20px; 
-    position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
 }
 
 .map iframe {
@@ -101,20 +101,4 @@
     width: 100%; 
     border: none;
     border-radius: 20px;
-}
-
-@media (max-width: 768px) {
-    .contact-us {
-        flex-direction: column; 
-        align-items: center;
-    }
-
-    .map {
-        margin-left: 0; 
-        margin-top: 20px; 
-    }
-
-    .map iframe {
-        height: 200px;
-    }
 }

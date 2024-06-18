@@ -2,25 +2,29 @@
   display: flex;
   justify-content: space-between;
 }
+
+
 .jobListPage {
-  width: 90%;
-  margin: 10px auto;
+  padding:  0px 20px 50px;
   display: flex;
   flex-direction: row;
  justify-content:space-around;
  flex-wrap: wrap;
+
+  
 }
 .job-card {
   /* background-color: aliceblue; */
-  padding: 7%;
-  width: calc(20% - 40px); /* 30% minus margin */
-  max-width: 300px; /* Optional: Max width for each job card */
+  padding: 3%;
+  width: 500px;
   margin: 20px 0;
   border-radius: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
+
+
 #delete-btn{
   background: none repeat scroll 0 0 transparent;
   border: medium none;

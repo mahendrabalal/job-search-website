@@ -21,7 +21,7 @@ function Navbar() {
             <Link to="/contact" className={"nav-button " + theme}>Contact</Link>
         </div>
             <button className='theme-btn' onClick={toggleTheme}>
-                {theme === 'light' ? 'dark': 'light'}
+                {theme === 'light' ? '🌑': '🔆'}
             </button>
         </div>
     );

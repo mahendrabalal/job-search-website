@@ -9,7 +9,6 @@ const {theme}=useContext(ThemeContext);
 
 return (
 <div className= {"about-us " + theme}>
-
       <h1>About Us</h1>
       <br></br>
       <p>Welcome to Career Builder, your go-to destination for finding and offering job opportunities across various industries. We are dedicated to bridging the gap between job seekers and employers, making the job search process efficient, effective, and enjoyable for everyone involved.</p>

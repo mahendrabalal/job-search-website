@@ -10,6 +10,7 @@ import JobDetails from "./pages/JobDetails";
 import AddJob from './pages/AddJob';
 import Services from './pages/Services';
 import "./App.css";
+import PageNotFound from './pages/NotFoundPage';
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/jobs/:jobId" element={<JobDetails jobs={jobs} />} />
         <Route path="/add-job" element={<AddJob jobs={jobs} setJobs={setJobs}/>} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
     </div>

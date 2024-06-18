@@ -43,7 +43,7 @@ function Contact() {
                 <h3>Visit Our Office</h3>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.2381615427055!2d-87.63348168454338!3d41.88514637921921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cae14d7c73f%3A0xa5c765a2453b7d9b!2s200%20N%20LaSalle%20Dr%2C%20Chicago%2C%20IL%2060601%2C%20USA!5e0!3m2!1sen!2s!4v1596581625798!5m2!1sen!2s"
-                     frameborder="0" style={{ border: 0 }} allowfullscreen="" aria-hidden="false" tabindex="0">
+                     frameborder="0" style={{ border: 0, width: "90%" }} allowfullscreen="" aria-hidden="false" tabindex="0">
                 </iframe>
 
                 <div className="social-links">
