@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
 }
-
-
 .jobListPage {
   width: 90%;
   margin: 10px auto;
@@ -11,8 +9,6 @@
   flex-direction: row;
  justify-content:space-around;
  flex-wrap: wrap;
-
-  
 }
 .job-card {
   /* background-color: aliceblue; */
@@ -25,8 +21,6 @@
   justify-content: center;
   align-items: center;
 }
-
-
 #delete-btn{
   background: none repeat scroll 0 0 transparent;
   border: medium none;

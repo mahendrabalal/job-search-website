@@ -14,9 +14,6 @@ function Home({ jobs, setJobs }) {
 
   return (
     <div className={"jobListPage " + value.theme}>
-    <Link id="no-style" to={`/add-job`}>
-      <button>+</button>
-    </Link>
       {jobs.map((job) => {
         return (
           <div className={"job-card " + value.theme} key={job.id}>
