@@ -36,3 +36,6 @@
     padding: 8px;
     box-sizing: border-box;
   }
+  .submitted-page {
+    background-color: #afb5bb;
+  }

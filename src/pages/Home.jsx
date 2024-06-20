@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import ThemeContext from "../context/theme.context";
 import "./Home.css";
+import axios from "axios";
 
 function Home({ jobs, setJobs }) {
   const value = useContext(ThemeContext);
 
   function deleteJob(id) {
     const updatedJobList = jobs.filter((el) => el.id !== id);
+    axios.delete(`http://localhost:5005/jobs/${id}`);
     setJobs(updatedJobList);
   }
 
@@ -27,7 +29,12 @@ function Home({ jobs, setJobs }) {
             <p>{job.description}</p>
             <p>{job.salary}</p>
             </Link>
-            <button id="delete-btn" onClick={() => deleteJob(job.id)}> ❌ </button>
+            <div id="edit-buttons">
+              <button id="delete-btn" onClick={() => deleteJob(job.id)}> ❌ </button>
+              <Link id="no-style" to={`edit-job/jobs/${job.id}`}>
+                <button id="delete-btn" > 📝 </button>
+              </Link>
+            </div>
           </div>
         );
       })}

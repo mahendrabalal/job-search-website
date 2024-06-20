@@ -41,9 +41,12 @@ const value = useContext(ThemeContext);
         <p><strong>Type:</strong> {jobItem.type}</p>
         <p><strong>Description:</strong> {jobItem.description}</p>
         <p><strong>Salary:</strong> {jobItem.salary}</p>
+        <p><strong>Requirements:</strong> {jobItem.requirements.join(", ")}</p>
+        <p><strong>Responsibilities:</strong> {jobItem.responsibilities.join(", ")}</p>
+
       </div>
     <br />
-    {isSubmitted ? (<p> You have submitted your Application</p>):(
+    {isSubmitted ? (<p className="submitted-page"> You have submitted your Application</p>):(
       <>
       <button className="apply-now-button" onClick={() => setIsApplying(!isApplying)}>{isApplying?"Cancel":"Apply Now"}</button>
       {isApplying && (

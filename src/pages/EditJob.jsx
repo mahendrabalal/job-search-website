@@ -6,7 +6,7 @@ import ThemeContext from "../context/theme.context";
 import axios from "axios";
 
 
-function AddJob({ jobs, setJobs }) {
+function EditJob({ jobs, setJobs }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [company, setCompany] = useState("");
@@ -73,7 +73,7 @@ console.log(err);
 
   return (
     <div className={"main-form " + value.theme}>
-      <h2 id="add-job-text">Add a Job</h2>
+      <h2 id="add-job-text">Edit a Job</h2>
       <form onSubmit={handleSubmit}>
         
         <label>
@@ -190,11 +190,11 @@ console.log(err);
         </label>
 
         <div>
-          <button id="form-button" type="submit">Add Job</button>
+          <button id="form-button" type="submit">Edit Job</button>
         </div>
       </form>
     </div>
   );
 }
 
-export default AddJob;
+export default EditJob;

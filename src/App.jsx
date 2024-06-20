@@ -11,13 +11,14 @@ import AddJob from './pages/AddJob';
 import Services from './pages/Services';
 import "./App.css";
 import PageNotFound from './pages/NotFoundPage';
+import EditJob from './pages/EditJob';
 
 function App() {
   const [jobs, setJobs] = useState([]);
 
   const getAllJobs = () => {
     axios
-      .get("https://job-search-website-backend.adaptable.app/jobs")
+      .get("http://localhost:5005/jobs")
       .then((response) => {
         setJobs(response.data);
         console.log(response.data);
@@ -38,8 +39,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/jobs/:jobId" element={<JobDetails jobs={jobs} />} />
+        <Route path="/jobs/:id" element={<JobDetails jobs={jobs} />} />
         <Route path="/add-job" element={<AddJob jobs={jobs} setJobs={setJobs}/>} />
+        <Route path="edit-job/jobs/:id" element={<EditJob jobs={jobs} setJobs={setJobs}/>} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

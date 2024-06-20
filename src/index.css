@@ -11,7 +11,7 @@
 }
 
 .Navbar.dark {
-  background-color: #252526;
+  background-color: #777783;
 }
 .footer.light {
   background-color: #a29797;
@@ -23,7 +23,10 @@ background-color: #ffffff;
   background-color: rgb(238, 210, 210);
 }
 .nav-button.light {
-  background-color: #b8b0b0;
+  background-color: #777070;
+}
+.nav-button.dark {
+  background-color: rgb(26, 68, 68);
 }
 .light a,
 .light p,
