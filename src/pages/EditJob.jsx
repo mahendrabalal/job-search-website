@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./AddJob.css";
 import { useContext } from "react";
 import ThemeContext from "../context/theme.context";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 function EditJob({ jobs, setJobs }) {
@@ -12,30 +13,24 @@ function EditJob({ jobs, setJobs }) {
   const [company, setCompany] = useState("");
   const [location, setLocation] = useState("");
   const [type, setType] = useState("");
-  const [minSalary, setMinSalary] = useState("");
-  const [maxSalary, setMaxSalary] = useState("");
+  const [salary, setSalary] = useState("");
   const [requirements, setRequirements] = useState("");
   const [responsibilities, setResponsibilities] = useState("");
-
+const nav =useNavigate();
   const handleSetTitle = (e) => setTitle(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleCompany = (e) => setCompany(e.target.value);
   const handleLocation = (e) => setLocation(e.target.value);
   const handleType = (e) => setType(e.target.value);
-  const handleMinSalary = (e) => setMinSalary(e.target.value);
-  const handleMaxSalary = (e) => setMaxSalary(e.target.value);
+  const handleSalary = (e) => setSalary(e.target.value);
   const handleRequirements = (e) => setRequirements(e.target.value);
   const handleResponsibilities = (e) => setResponsibilities(e.target.value);
-
+  const {id} = useParams();
   const value = useContext(ThemeContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const salary = `${minSalary} - ${maxSalary} USD`;
 
-    const requirementsArray = requirements.split(",").map(req => req.trim());
-    const responsabilitiesArray = responsibilities.split(",").map(req => req.trim());
-    const postedDate = new Date().toISOString().split('T')[0];
 
     const newJob = { 
       title, 
@@ -44,32 +39,44 @@ function EditJob({ jobs, setJobs }) {
       location, 
       type, 
       salary, 
-      requirements: requirementsArray, 
-      responsibilities: responsabilitiesArray,
-      posted_date: postedDate
+      requirements, 
+      responsibilities,
     };
 
-    axios.post("http://localhost:5005/jobs", newJob)
+    axios.put(`http://localhost:5005/jobs/${id}`, newJob)
     .then ((res) => {
 console.log(res);
-
-setJobs([res.data, ...jobs]);
-
-setTitle("");
-setDescription("");
-setCompany("");
-setLocation("");
-setType("");
-setMinSalary("");
-setMaxSalary("");
-setRequirements("");
-setResponsibilities("");
+return axios
+      .get("http://localhost:5005/jobs")
+    
+    })
+    .then((response) => {
+      setJobs(response.data);
+  nav("/home")
     })
     .catch((err) => {
 console.log(err);
     })
 
   };
+  useEffect (() => {
+    axios.get(`http://localhost:5005/jobs/${id}`)
+    .then((res) => {
+console.log(res.data);
+
+setTitle(res.data.title);
+setDescription(res.data.description);
+setCompany(res.data.company);
+setLocation(res.data.location);
+setType(res.data.type);
+setSalary(res.data.salary);
+setRequirements(res.data.requirements);
+setResponsibilities(res.data.responsibilities);
+    })
+    .catch(()=> {
+
+    })
+  }, [id])
 
   return (
     <div className={"main-form " + value.theme}>
@@ -142,26 +149,14 @@ console.log(err);
         </label>
 
         <label>
-          Minimum Salary
+          Salary
           <input 
             className="add-job-form" 
-            name="minSalary" 
-            type="number" 
-            placeholder="Minimum Salary" 
-            onChange={handleMinSalary} 
-            value={minSalary} 
-          />
-        </label>
-
-        <label>
-          Maximum Salary
-          <input 
-            className="add-job-form" 
-            name="maxSalary" 
-            type="number" 
-            placeholder="Maximum Salary" 
-            onChange={handleMaxSalary} 
-            value={maxSalary} 
+            name="salary" 
+            type="text" 
+            placeholder="Salary" 
+            onChange={handleSalary} 
+            value={salary} 
           />
         </label>
 
