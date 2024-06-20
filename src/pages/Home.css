@@ -51,9 +51,23 @@
     width: calc(100% - 40px);
   }
 }
-#edit-buttons{
+#buttons {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  height: 50%;
+  margin-top: auto;
+
+}
+#delete-btn, #edit-btn {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#edit-btn{
+  background-color: rgb(176, 166, 157);
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  
 }

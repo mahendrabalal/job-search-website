@@ -34,14 +34,14 @@ function App() {
     <div className='root'>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home jobs={jobs} />} />
+        <Route path="/" element={<Home jobs={jobs} setJobs={setJobs} />} />
         <Route path="/home" element={<Home jobs={jobs} setJobs={setJobs} />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/jobs/:id" element={<JobDetails jobs={jobs} />} />
         <Route path="/add-job" element={<AddJob jobs={jobs} setJobs={setJobs}/>} />
-        <Route path="edit-job/jobs/:id" element={<EditJob jobs={jobs} setJobs={setJobs}/>} />
+        <Route path="/edit-job/jobs/:id" element={<EditJob jobs={jobs} setJobs={setJobs}/>} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

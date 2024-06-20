@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
 import "./AddJob.css";
 import { useContext } from "react";
 import ThemeContext from "../context/theme.context";

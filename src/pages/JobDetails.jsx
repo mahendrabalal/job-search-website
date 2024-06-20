@@ -1,16 +1,16 @@
-import React,{useState} from "react";
+import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import "./JobDetails.css";
-import { useContext } from "react";
 import ThemeContext from "../context/theme.context";
 
 function JobDetails({ jobs }) {
-  const { jobId } = useParams();
-  const jobItem = jobs.find(job => job.id === jobId );
-
+  const { id } = useParams();
+  console.log("Job ID from URL:", id);
+  console.log("Jobs Array:", jobs);
+  const jobItem = jobs.find(el => el.id === Number(id));
+  console.log("Matched Job Item:", jobItem);
   const[isApplying, setIsApplying] = useState(false);
-  const [formData, setFormData] = useState({name: "", email: "", coverLetter:""
-});
+  const [formData, setFormData] = useState({name: "", email: "", coverLetter:""});
   const[isSubmitted, setIsSubmitted] = useState(false);
 
 const handleChange= (e) => {
@@ -26,9 +26,6 @@ const handleSubmit = (e) => {
   setIsSubmitted(true);
 };
 
-if(!jobItem) {
-  return <div>Job not found</div>;
-}
 const value = useContext(ThemeContext);
 
 
