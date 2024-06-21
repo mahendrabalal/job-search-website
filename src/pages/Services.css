@@ -1,5 +1,9 @@
 .services-container {
     width: 100%;
+    align-items: flex-start;
+    justify-content: center;
     padding: 20px 0px 20px 50px;
+    display: flex;
+    flex-direction: column;
 }
 

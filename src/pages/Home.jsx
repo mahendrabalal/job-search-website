@@ -27,12 +27,12 @@ function Home({ jobs, setJobs }) {
               <p>{job.type}</p>
             </div>
             <p>{job.description}</p>
-            <p>{job.salary}</p>
+            <p id="text-salary">{job.salary}</p>
             </Link>
-            <div id="buttons">
+            <div id="edit-buttons">
               <button id="delete-btn" onClick={() => deleteJob(job.id)}> ❌ </button>
               <Link id="no-style" to={`/edit-job/jobs/${job.id}`}>
-                <button id="edit-btn" > 📝 </button>
+                <button id="delete-btn" > 📝 </button>
               </Link>
     
             </div>
