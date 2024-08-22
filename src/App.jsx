@@ -18,7 +18,7 @@ function App() {
 
   const getAllJobs = () => {
     axios
-      .get("http://localhost:5005/jobs")
+      .get("https://job-search-website-backend.adaptable.app/jobs/jobs")
       .then((response) => {
         setJobs(response.data);
         console.log(response.data);

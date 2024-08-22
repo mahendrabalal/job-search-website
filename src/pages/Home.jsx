@@ -10,7 +10,7 @@ function Home({ jobs, setJobs }) {
 
   function deleteJob(id) {
     const updatedJobList = jobs.filter((el) => el.id !== id);
-    axios.delete(`http://localhost:5005/jobs/${id}`);
+    axios.delete(`https://job-search-website-backend.adaptable.app/jobs/${id}`);
     setJobs(updatedJobList);
   }
 

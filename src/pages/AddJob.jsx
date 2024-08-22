@@ -49,7 +49,7 @@ function AddJob({ jobs, setJobs }) {
       posted_date: postedDate
     };
 
-    axios.post("http://localhost:5005/jobs", newJob)
+    axios.post("https://job-search-website-backend.adaptable.app/jobs", newJob)
     .then ((res) => {
 console.log(res);
 
