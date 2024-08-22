@@ -4,6 +4,7 @@ import "./AddJob.css";
 import { useContext } from "react";
 import ThemeContext from "../context/theme.context";
 import axios from "axios";
+import { API_URL } from "../config";
 
 
 function AddJob({ jobs, setJobs }) {
@@ -49,7 +50,7 @@ function AddJob({ jobs, setJobs }) {
       posted_date: postedDate
     };
 
-    axios.post("https://job-search-website-backend.adaptable.app/jobs", newJob)
+    axios.post("${API_URL}/jobs", newJob)
     .then ((res) => {
 console.log(res);
 

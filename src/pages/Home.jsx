@@ -4,13 +4,14 @@ import { useContext } from "react";
 import ThemeContext from "../context/theme.context";
 import "./Home.css";
 import axios from "axios";
+import { API_URL } from "../config";
 
 function Home({ jobs, setJobs }) {
   const value = useContext(ThemeContext);
 
   function deleteJob(id) {
     const updatedJobList = jobs.filter((el) => el.id !== id);
-    axios.delete(`https://job-search-website-backend.adaptable.app/jobs/${id}`);
+    axios.delete(`${API_URL}/jobs/${id}`);
     setJobs(updatedJobList);
   }
 
