@@ -16,14 +16,17 @@ import EditJob from './pages/EditJob';
 function App() {
   const [jobs, setJobs] = useState([]);
 
+  // Corrected API URL
+  const API_URL = "http://localhost:5005/jobs";
+
   const getAllJobs = () => {
     axios
-      .get("https://job-search-website-backend.adaptable.app/jobs/jobs")
+      .get(API_URL)
       .then((response) => {
         setJobs(response.data);
         console.log(response.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log('Error fetching jobs:', error));
   };
 
   useEffect(() => {
@@ -40,8 +43,8 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/jobs/:id" element={<JobDetails jobs={jobs} />} />
-        <Route path="/add-job" element={<AddJob jobs={jobs} setJobs={setJobs}/>} />
-        <Route path="/edit-job/jobs/:id" element={<EditJob jobs={jobs} setJobs={setJobs}/>} />
+        <Route path="/add-job" element={<AddJob jobs={jobs} setJobs={setJobs} />} />
+        <Route path="/edit-job/:id" element={<EditJob jobs={jobs} setJobs={setJobs} />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

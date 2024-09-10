@@ -5,7 +5,6 @@ import ThemeContext from "../context/theme.context";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 function EditJob({ jobs, setJobs }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -15,73 +14,61 @@ function EditJob({ jobs, setJobs }) {
   const [salary, setSalary] = useState("");
   const [requirements, setRequirements] = useState("");
   const [responsibilities, setResponsibilities] = useState("");
-const nav =useNavigate();
-  const handleSetTitle = (e) => setTitle(e.target.value);
-  const handleDescription = (e) => setDescription(e.target.value);
-  const handleCompany = (e) => setCompany(e.target.value);
-  const handleLocation = (e) => setLocation(e.target.value);
-  const handleType = (e) => setType(e.target.value);
-  const handleSalary = (e) => setSalary(e.target.value);
-  const handleRequirements = (e) => setRequirements(e.target.value);
-  const handleResponsibilities = (e) => setResponsibilities(e.target.value);
-  const {id} = useParams();
+  const nav = useNavigate();
+  const { id } = useParams();
   const value = useContext(ThemeContext);
+
+  useEffect(() => {
+    // Fetch the job details for editing
+    axios.get(`http://localhost:5005/jobs/${id}`)
+      .then((res) => {
+        const job = res.data;
+        setTitle(job.title);
+        setDescription(job.description);
+        setCompany(job.company);
+        setLocation(job.location);
+        setType(job.type);
+        setSalary(job.salary);
+        setRequirements(job.requirements.join(", ")); // Assuming requirements are an array
+        setResponsibilities(job.responsibilities.join(", ")); // Assuming responsibilities are an array
+      })
+      .catch((error) => {
+        console.error("Error fetching job details:", error);
+      });
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-
-    const newJob = { 
+    const updatedJob = { 
       title, 
       description, 
       company, 
       location, 
       type, 
       salary, 
-      requirements, 
-      responsibilities,
+      requirements: requirements.split(",").map(req => req.trim()), 
+      responsibilities: responsibilities.split(",").map(res => res.trim())
     };
 
-    axios.put(`http://localhost:5005/jobs/${id}`, newJob)
-    .then ((res) => {
-console.log(res);
-return axios
-      .get("http://localhost:5005/jobs")
-    
-    })
-    .then((response) => {
-      setJobs(response.data);
-  nav("/home")
-    })
-    .catch((err) => {
-console.log(err);
-    })
-
+    axios.put(`http://localhost:5005/jobs/${id}`, updatedJob)
+      .then(() => {
+        // Refresh job list and navigate back to home
+        return axios.get("http://localhost:5005/jobs");
+      })
+      .then((response) => {
+        setJobs(response.data);
+        nav("/home");
+      })
+      .catch((err) => {
+        console.error("Error updating job:", err);
+      });
   };
-  useEffect (() => {
-    axios.get(`http://localhost:5005/jobs/${id}`)
-    .then((res) => {
-console.log(res.data);
-
-setTitle(res.data.title);
-setDescription(res.data.description);
-setCompany(res.data.company);
-setLocation(res.data.location);
-setType(res.data.type);
-setSalary(res.data.salary);
-setRequirements(res.data.requirements);
-setResponsibilities(res.data.responsibilities);
-    })
-    .catch(()=> {
-
-    })
-  }, [id])
 
   return (
     <div className={"main-form " + value.theme}>
       <h2 id="add-job-text">Edit a Job</h2>
       <form onSubmit={handleSubmit}>
-        
         <label>
           Title
           <input 
@@ -89,7 +76,7 @@ setResponsibilities(res.data.responsibilities);
             name="title" 
             type="text" 
             placeholder="Title" 
-            onChange={handleSetTitle} 
+            onChange={(e) => setTitle(e.target.value)} 
             value={title} 
           />
         </label>
@@ -101,7 +88,7 @@ setResponsibilities(res.data.responsibilities);
             name="description" 
             type="text" 
             placeholder="Description" 
-            onChange={handleDescription} 
+            onChange={(e) => setDescription(e.target.value)} 
             value={description} 
           />
         </label>
@@ -113,7 +100,7 @@ setResponsibilities(res.data.responsibilities);
             name="company" 
             type="text" 
             placeholder="Company" 
-            onChange={handleCompany} 
+            onChange={(e) => setCompany(e.target.value)} 
             value={company} 
           />
         </label>
@@ -125,7 +112,7 @@ setResponsibilities(res.data.responsibilities);
             name="location" 
             type="text" 
             placeholder="Location" 
-            onChange={handleLocation} 
+            onChange={(e) => setLocation(e.target.value)} 
             value={location} 
           />
         </label>
@@ -135,7 +122,7 @@ setResponsibilities(res.data.responsibilities);
           <select 
             name="type" 
             id="type" 
-            onChange={handleType} 
+            onChange={(e) => setType(e.target.value)} 
             value={type}
             className="add-job-form"
           >
@@ -154,7 +141,7 @@ setResponsibilities(res.data.responsibilities);
             name="salary" 
             type="text" 
             placeholder="Salary" 
-            onChange={handleSalary} 
+            onChange={(e) => setSalary(e.target.value)} 
             value={salary} 
           />
         </label>
@@ -166,7 +153,7 @@ setResponsibilities(res.data.responsibilities);
             name="requirements" 
             type="text" 
             placeholder="Requirements (e.g. skill1, skill2, skill3)" 
-            onChange={handleRequirements} 
+            onChange={(e) => setRequirements(e.target.value)} 
             value={requirements} 
           />
         </label>
@@ -177,8 +164,8 @@ setResponsibilities(res.data.responsibilities);
             className="add-job-form" 
             name="responsibilities" 
             type="text" 
-            placeholder="Responsibilities (e.g. l, 2, 3)" 
-            onChange={handleResponsibilities} 
+            placeholder="Responsibilities (e.g. task1, task2, task3)" 
+            onChange={(e) => setResponsibilities(e.target.value)} 
             value={responsibilities} 
           />
         </label>
