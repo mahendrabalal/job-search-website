@@ -6,7 +6,7 @@ import axios from "axios";
 
 function Home({ jobs, setJobs }) {
   const value = useContext(ThemeContext);
-  const API_URL = "http://localhost:5005/jobs";
+  const API_URL = "https://job-search-website-backend.adaptable.app/jobs";
 
   async function deleteJob(id) {
     try {

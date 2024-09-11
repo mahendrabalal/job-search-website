@@ -17,7 +17,7 @@ function App() {
   const [jobs, setJobs] = useState([]);
 
   // Corrected API URL
-  const API_URL = "http://localhost:5005/jobs";
+  const API_URL = "https://job-search-website-backend.adaptable.app/jobs";
 
   const getAllJobs = () => {
     axios

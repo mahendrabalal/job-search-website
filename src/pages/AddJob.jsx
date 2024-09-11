@@ -4,7 +4,7 @@ import "./AddJob.css";
 import ThemeContext from "../context/theme.context";
 
 function AddJob({ jobs, setJobs }) {
-  const API_URL = "http://localhost:5005/jobs"; // Correct API URL
+  const API_URL = "https://job-search-website-backend.adaptable.app/jobs"; // Correct API URL
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
